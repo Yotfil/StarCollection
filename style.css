@@ -1,0 +1,177 @@
+:root {
+    --bg-color-primary: #333333;
+    --bg-color-secondary: #3a3a3a;
+    --color-shadow: #0e0e0e;
+    --title-color-primary: #eb0018;
+    --sub-color-primary: #ffae00;
+    --sub-color-secondary: #795a00;
+    --txt-color-primary: #bfbfbf;
+    --txt-color-secundary: #737373;
+
+    /* PADDING - MARGIN*/
+    /* large */
+    --large-x100: 100px;
+    /* medium */
+    --middle-x50: 50px;
+    /* small */
+    --small-x25: 25px;
+    --small-x15: 15px;
+    --small-x10: 10px;
+    --small-x5: 5px;
+
+    /* FONTS */
+    --font-serif: "Amiri", serif;
+    --font-sansSerif: "Lato", sans-serif;
+    /* WEIGHT */
+    --font-light: 300;
+    --font-medium: 400;
+    --font-bold: 700;
+    /* SIZE */
+    --font-size-p: 16px;
+    --font-size-title: 48px;
+    --font-size-sub: 32px;
+    --font-size-sub2: 14px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-title);
+}
+.txtTitle {
+    color: var(--title-color-primary);
+    margin-right: var(--small-x25);
+}
+.main {
+    padding-top: var(--middle-x50);
+    background: var(--bg-color-primary);
+    /* height: 100vh; */
+    padding-bottom: 100px;
+}
+.logoDungeons {
+    width: 150px;
+}
+.cols {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.left,
+.right {
+    background: var(--bg-color-secondary);
+    box-shadow: 0 0 15px var(--color-shadow);
+    width: 48%;
+    /* height: 90vh; */
+    padding: var(--middle-x50) var(--small-x25);
+}
+
+/* LEFT COLUMN */
+.descriptonGame {
+    color: var(--txt-color-primary);
+    font-size: var(--font-size-p);
+    margin-bottom: var(--middle-x50);
+    font-family: var(--font-sansSerif);
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+.sub {
+    font-size: var(--font-size-sub);
+    font-family: var(--font-sansSerif);
+    color: var(--sub-color-primary);
+    margin-bottom: var(--small-x25);
+}
+/* FORM */
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: var(--small-x15);
+}
+.txtLabel {
+}
+
+.inputs > input,
+.inputs > textarea {
+    background: transparent;
+    border: none;
+    box-shadow: 0 0 4px var(--color-shadow);
+    padding: var(--small-x10);
+    border-radius: var(--small-x5);
+    color: var(--txt-color-primary);
+    font-size: var(--font-size-p);
+    font-family: var(--font-sansSerif);
+    transition: all 0.3s ease-in-out;
+}
+.inputs > input::placeholder {
+    color: var(--txt-color-secundary);
+}
+.inputs > input:focus,
+.inputs > textarea:focus {
+    box-shadow: inset 0 0 4px var(--color-shadow);
+    border: 1px solid var(--sub-color-secondary);
+    transition: all 0.3s ease-in-out;
+}
+.txtDescription {
+    color: var(--txt-color-primary);
+    font-family: var(--font-sansSerif);
+    margin-top: var(--small-x5);
+}
+.txtLabel {
+    font-family: var(--font-sansSerif);
+    font-weight: var(--font-bold);
+    color: var(--txt-color-primary);
+    font-size: var(--font-size-p);
+    margin-bottom: var(--small-x5);
+    padding-left: var(--small-x10);
+}
+.btn {
+    display: flex;
+    justify-content: center;
+}
+.button {
+    background: var(--sub-color-secondary);
+    color: var(--txt-color-primary);
+    border: none;
+    font-weight: var(--font-bold);
+    padding: var(--small-x10) var(--small-x5);
+    border-radius: var(--small-x5);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-top: var(--small-x15);
+}
+.button:hover {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 4px var(--color-shadow);
+}
+/* RIGHT COLUMN */
+.itemMonster {
+    position: relative;
+}
+.monsterPic {
+    width: 90px;
+}
+.trash {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
