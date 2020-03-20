@@ -84,7 +84,24 @@ li {
     max-height: 1000px;
     overflow: auto;
 }
-
+/* MEDIA QUERY */
+@media screen and (max-width: 768px) {
+    .cols {
+        flex-direction: column;
+    }
+    .left,
+    .right {
+        width: 95%;
+        max-height: 1500px;
+        margin-bottom: var(--middle-x50);
+    }
+    .title {
+        flex-direction: column;
+    }
+    .txtTitle {
+        font-size: var(--font-size-sub);
+    }
+}
 /* LEFT COLUMN */
 .descriptonGame {
     color: var(--txt-color-primary);
@@ -171,6 +188,15 @@ li {
 .button:hover {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 4px var(--color-shadow);
+}
+@media screen and (max-width: 768px) {
+    .inputs {
+        width: 100%;
+    }
+    .inputs > input,
+    .inputs > textarea {
+        width: 100%;
+    }
 }
 /* RIGHT COLUMN */
 .itemMonster {
@@ -339,4 +365,31 @@ li {
 .slowHide {
     transition: all 3s ease-in-out;
     opacity: 0 !important;
+}
+/* FOOTER */
+.footer {
+    background: var(--bg-color-primary);
+}
+.cont-footer {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--bg-color-secondary);
+}
+.copy {
+    font-family: var(--font-sansSerif);
+    color: var(--sub-color-secondary);
+    letter-spacing: 1px;
+}
+.link-copy {
+    text-decoration: none;
+    color: var(--sub-color-secondary);
+    font-weight: var(--font-bold);
+    transition: all 0.3s ease-in-out;
+}
+.link-copy:hover {
+    color: var(--sub-color-primary);
+    transition: all 0.3s ease-in-out;
 }
