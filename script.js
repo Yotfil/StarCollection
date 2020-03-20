@@ -31,21 +31,26 @@ function quitarVida(ID){
         if( isNaN(inputQuitarVida)){
             alert('Ingresa un número')
 }else{
-    let vidaActual = document.querySelector("#valueVida-" + ID).innerHTML
-    const vidaNueva = vidaActual - inputQuitarVida
-    console.log(vidaNueva)
-    vidaActual.innerHTML=vidaNueva
+    let vidaActual = document.querySelector("#valueVida-" + ID).textContent
+
+    const objVidaActual = JSON.parse(vidaActual)
+    const vidaNueva = objVidaActual - inputQuitarVida
+    const objVidaNueva = JSON.stringify(vidaNueva)
+    dragons[ID].Vida= objVidaNueva
 }
-// dragonList();
+dragonList();
 }
 
 function quitarDragon(ID){
-    const Dragon = document.querySelector("#dragon-" + ID)
+    const dragonElement = document.querySelector("#dragon-" + ID)
     console.log(Dragon)
-    setTimeout(() => (Dragon.style.opacity = 0), 4000);
+    setTimeout(() => (dragonElement.classList.add('slowHide')), 500);
         setTimeout(function() {
-            Dragon.classList.add('hide');
-        }, 5000);
+            dragons = dragons.filter((dragon, index)=>{
+                return ID !== index
+            })
+            dragonElement.remove()
+                    }, 4000);
     // dragonList();
 }
 
@@ -87,7 +92,7 @@ function dragonList() {
             <div class="agregarTipo">
                     <input type="text" id="tipo-${contador}" class="inputTipo">
                     <button onclick="agregarTipo(${contador})" class="btnAgregarTipo">+</button>
-                    <small class="smallTipos">Agrega tipos cuando evoluciones</small>
+                    <small class="smallTipos">Agrega tipos</small>
                 </div>
             <div class="monsterDescription">
                 <p class="titleMonstersItems">
