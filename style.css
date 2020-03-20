@@ -1,12 +1,14 @@
 :root {
     --bg-color-primary: #333333;
     --bg-color-secondary: #3a3a3a;
+    --bg-color-tertiary: #2b2b2b;
     --color-shadow: #0e0e0e;
     --title-color-primary: #eb0018;
     --sub-color-primary: #ffae00;
     --sub-color-secondary: #795a00;
     --txt-color-primary: #bfbfbf;
     --txt-color-secundary: #737373;
+    --color-green: #008035;
 
     /* PADDING - MARGIN*/
     /* large */
@@ -77,6 +79,10 @@ li {
     width: 48%;
     /* height: 90vh; */
     padding: var(--middle-x50) var(--small-x25);
+    border-radius: var(--small-x15);
+    /* height: 1000px; */
+    max-height: 1000px;
+    overflow: auto;
 }
 
 /* LEFT COLUMN */
@@ -100,9 +106,7 @@ li {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-bottom: var(--small-x15);
-}
-.txtLabel {
+    margin-bottom: var(--middle-x50);
 }
 
 .inputs > input,
@@ -139,6 +143,16 @@ li {
     margin-bottom: var(--small-x5);
     padding-left: var(--small-x10);
 }
+.formMonster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.abilities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .btn {
     display: flex;
     justify-content: center;
@@ -161,17 +175,164 @@ li {
 /* RIGHT COLUMN */
 .itemMonster {
     position: relative;
+    padding: var(--small-x15);
+    box-shadow: 0 0 8px var(--color-shadow);
+    margin: var(--small-x25) 0;
+    border-radius: var(--small-x15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 40px);
+    grid-template-areas:
+        "image name name"
+        "image kind kind"
+        "image input input"
+        "description description description"
+        "description description description"
+        "atk def life" "atk def life";
+}
+.monsterPic {
+    grid-area: image;
+}
+.monsterName {
+    grid-area: name;
+    font-size: var(--font-size-p);
+    text-transform: uppercase;
+    color: var(--txt-color-primary);
+    font-family: var(--font-sansSerif);
+    font-weight: var(--font-bold);
+    /* margin-bottom: var(--small-x15); */
+}
+.titleMonstersItems {
+    font-family: var(--font-serif);
+    color: var(--sub-color-secondary);
+    font-size: var(--font-size-sub2);
+    font-weight: var(--font-bold);
+}
+.monsterKind {
+    grid-area: kind;
+    font-size: var(--font-size-p);
+    font-family: var(--font-sansSerif);
+    color: var(--txt-color-primary);
+}
+.agregarTipo {
+    grid-area: input;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: var(--small-x10);
+}
+.inputTipo {
+    margin-right: var(--small-x10);
+    margin-bottom: var(--small-x5);
+}
+.inputVida,
+.inputTipo {
+    border: none;
+    border-radius: var(--small-x5);
+    background: var(--bg-color-tertiary);
+    color: var(--txt-color-primary);
+    padding: 0 var(--small-x5);
+}
+
+.smallTipos {
+    width: 100%;
+    color: var(--txt-color-primary);
+    font-family: var(--font-sansSerif);
+    font-style: italic;
+}
+.monsterDescription {
+    grid-area: description;
+    overflow: auto;
+    color: var(--txt-color-primary);
+    font-family: var(--font-sansSerif);
+    font-size: var(--font-size-p);
+}
+.monsterAtk {
+    grid-area: atk;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.monsterDef {
+    grid-area: def;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.monsterVida {
+    grid-area: life;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .monsterPic {
     width: 90px;
 }
 .trash {
-    width: 40px;
-    height: 40px;
+    width: var(--small-x25);
+    height: var(--small-x25);
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: var(--small-x15);
+    right: var(--small-x15);
     background: transparent;
     border: none;
     cursor: pointer;
+}
+.trashIcon {
+    fill: var(--title-color-primary);
+}
+.titleMonsterAtk {
+    width: 100%;
+    text-align: center;
+}
+.contAtaques {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.quitarVida {
+    display: flex;
+    justify-content: center;
+}
+.inputVida {
+    width: 60%;
+    margin-right: var(--small-x10);
+}
+.valueMonsterAtk {
+    color: var(--title-color-primary);
+    font-family: var(--font-sansSerif);
+}
+.valueMonsterDef {
+    color: var(--sub-color-primary);
+    font-family: var(--font-sansSerif);
+}
+.valueMonsterVida {
+    color: var(--color-green);
+    font-family: var(--font-sansSerif);
+    margin-bottom: var(--small-x10);
+}
+.btnAgregarTipo {
+    color: var(--sub-color-primary);
+}
+.btnQuitarVida {
+    color: var(--title-color-primary);
+}
+.btnAgregarTipo,
+.btnQuitarVida {
+    font-size: var(--font-size-p);
+    font-weight: var(--font-bold);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.danger {
+    color: var(--title-color-primary);
+}
+.hide {
+    display: none !important;
+    transition: all 0.6s ease-in-out;
 }
