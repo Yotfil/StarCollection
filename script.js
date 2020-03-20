@@ -42,14 +42,14 @@ dragonList();
 }
 
 function quitarDragon(ID){
-    const Dragon = document.querySelector("#dragon-" + ID)
-    console.log(Dragon)
-    setTimeout(() => (Dragon.classList.add('slowHide')), 500);
+    const elementDragon = document.querySelector("#dragon-" + ID)
+    console.log(elementDragon)
+    setTimeout(() => (elementDragon.classList.add('slowHide')), 500);
         setTimeout(function() {
             dragons = dragons.filter((dragon, index)=>{
                 return ID !== index
             })
-            Dragon.remove()
+            elementDragon.remove()
                     }, 4000);
     // dragonList();
 }
